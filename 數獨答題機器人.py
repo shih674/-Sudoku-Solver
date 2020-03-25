@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[96]:
+# In[1]:
 
 
 # 運算指標
@@ -21,40 +21,7 @@ question_ori = [[0, 0, 9, 0, 0, 0, 5, 0, 0],
                 [1, 0, 5, 0, 0, 0, 0, 0, 0]]
 
 
-# In[97]:
-
-
-# 快速輸入題目
-count = 1
-table = [] # 放置使用者輸入題目的表格
-
-while count <= 9:
-    while True:
-        raw_input = input(f':: 請輸入第 {count} 列 \n >>')
-        
-        # 檢查長度是否為9，不是則重新輸入
-        if len(raw_input) == 9:
-            break
-        else:
-            print(f' [Warning] 輸入的長度有問題，請重新輸入')
-    row = []
-    
-    # 把輸入的字串轉化成長度為9的字串
-    for i in range(0,9):
-        try:
-            row.append(int(raw_input[i]))
-        except:
-            print(f' [Exception] 字元轉換錯誤，只能輸入數字')
-    # 把list加回表中
-    table.append(row)
-    count = count + 1
-
-# 印出使用者輸入檢查內容
-print_table(table)
-question_ori = table
-
-
-# In[98]:
+# In[2]:
 
 
 # 小工具: 印出表格狀題目
@@ -125,7 +92,7 @@ def total_analy(row_result,column_result,block_result):
         return False,0
 
 
-# In[99]:
+# In[3]:
 
 
 # 方法2
@@ -227,7 +194,40 @@ def scheme2(target,question):
     return return_list
 
 
-# In[100]:
+# In[ ]:
+
+
+# 快速輸入題目
+count = 1
+table = [] # 放置使用者輸入題目的表格
+
+while count <= 9:
+    while True:
+        raw_input = input(f'\n:: 請輸入第 {count} 列 \n >>')
+        
+        # 檢查長度是否為9，不是則重新輸入
+        if len(raw_input) == 9:
+            break
+        else:
+            print(f' [Warning] 輸入的長度有問題，請重新輸入')
+    row = []
+    
+    # 把輸入的字串轉化成長度為9的字串
+    for i in range(0,9):
+        try:
+            row.append(int(raw_input[i]))
+        except:
+            print(f' [Exception] 字元轉換錯誤，只能輸入數字')
+    # 把list加回表中
+    table.append(row)
+    count = count + 1
+
+# 印出使用者輸入檢查內容
+print_table(table)
+question_ori = table
+
+
+# In[5]:
 
 
 # 主程式段
@@ -280,4 +280,11 @@ while running:
 
 print("::計算結束，結果為")
 print_table((question_ori))
+k = input('按ENTER結束')
+
+
+# In[ ]:
+
+
+
 
